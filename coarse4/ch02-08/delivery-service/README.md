@@ -12,3 +12,8 @@
 ```
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 ```
+
+### 💥 스웨거 접속 링크
+
+[localhost:8080/swagger-ui/index.html](localhost:8080/swagger-ui/index.html)
+
