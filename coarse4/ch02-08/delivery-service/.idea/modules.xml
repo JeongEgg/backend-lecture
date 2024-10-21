@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2104783338/delivery-service.api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-2104783338/delivery-service.api.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1037727486/delivery-service.db.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1037727486/delivery-service.db.main.iml" />
+    </modules>
+  </component>
+</project>
