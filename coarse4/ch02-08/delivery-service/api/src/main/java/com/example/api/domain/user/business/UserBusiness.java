@@ -1,10 +1,13 @@
 package com.example.api.domain.user.business;
 
 import com.example.api.common.annotation.Business;
+import com.example.api.domain.token.business.TokenBusiness;
+import com.example.api.domain.token.controller.model.TokenResponse;
 import com.example.api.domain.user.controller.model.UserLoginRequest;
 import com.example.api.domain.user.controller.model.UserRegisterRequest;
 import com.example.api.domain.user.controller.model.UserResponse;
 import com.example.api.domain.user.converter.UserConverter;
+import com.example.api.domain.user.model.User;
 import com.example.api.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 
@@ -18,6 +21,8 @@ public class UserBusiness {
     * */
     private final UserService userService;
     private final UserConverter userConverter;
+
+    private final TokenBusiness tokenBusiness;
 
     /**
      * 사용자에 대한 가입처리 로직
@@ -46,9 +51,17 @@ public class UserBusiness {
      * 3. token 생성
      * 4. token response
      */
-    public UserResponse login(UserLoginRequest request) {
+    public TokenResponse login(UserLoginRequest request) {
         var userEntity = userService.login(request.getEmail(), request.getPassword());
-        // TODO 토큰 생성
-        return userConverter.toResponse(userEntity);
+        var tokenResponse = tokenBusiness.issueToken(userEntity);
+        return tokenResponse;
+    }
+
+    public UserResponse me(
+            User user
+    ) {
+        var userEntity = userService.getUserWithThrow(user.getId());
+        var response = userConverter.toResponse(userEntity);
+        return response;
     }
 }
