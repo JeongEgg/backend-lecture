@@ -9,6 +9,7 @@
         </processorPath>
         <module name="delivery-service.api.main" />
         <module name="delivery-service.db.main" />
+        <module name="delivery-service.store-admin.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
